@@ -17,7 +17,11 @@ void handleRoot() {
   float humidity = dht.readHumidity();
   float temperature = dht.readTemperature();
 
-  String webpage = "Humidity: " + String(humidity) + "%<br>Temperature: " + String(temperature) + "°C";
+  String webpage = "<!DOCTYPE html><html><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><title>DHT11 Sensor Data</title></head><body>";
+  webpage += "<h1>DHT11 Sensor Data</h1>";
+  webpage += "<p>Humidity: " + String(humidity, 2) + "%<br>Temperature: " + String(temperature, 2) + "°C</p>";
+  webpage += "</body></html>";
+
   server.send(200, "text/html", webpage);
 }
 
