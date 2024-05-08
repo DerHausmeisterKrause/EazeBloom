@@ -24,7 +24,7 @@ void handleRoot() {
   bool lampStatus = true; // Beispielwert für die Lampe
 
   String webpage = "<!DOCTYPE html><html><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><title>DHT11 Sensor Data</title>";
-  webpage += "<style>body { font-family: Arial, sans-serif; text-align: center; background-color: #f2f2f2; } .container { max-width: 600px; margin: 0 auto; background-color: #ffffff; padding: 20px; border-radius: 10px; box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1); } .logo { font-family: 'Courier New', Courier, monospace; } h2 { margin-top: 20px; } .status { font-weight: bold; color: #007bff; }</style></head><body>";
+  webpage += "<style>body { font-family: Arial, sans-serif; text-align: center; background-color: #f2f2f2; } .container { max-width: 600px; margin: 0 auto; background-color: #ffffff; padding: 20px; border-radius: 10px; box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1); } .logo { font-family: 'Courier New', Courier, monospace; } h2 { margin-top: 20px; font-family: 'Verdana', sans-serif; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); }</style></head><body>";
   webpage += "<div class=\"container\">";
   
   // Logo
@@ -41,26 +41,26 @@ void handleRoot() {
   
   // Temperatur und Luftfeuchtigkeit
   webpage += "<div>";
-  webpage += "<h2>Temperature and Humidity</h2>";
+  webpage += "<h2 style=\"font-size: 24px;\">Temperature and Humidity</h2>";
   webpage += "<p>Humidity: " + String(humidity, 2) + "%<br>Temperature: " + String(temperature, 2) + "°C</p>";
   webpage += "</div>";
   
   // pH-Wert
   webpage += "<div>";
-  webpage += "<h2>pH Value</h2>";
+  webpage += "<h2 style=\"font-size: 24px;\">pH Value</h2>";
   webpage += "<p>pH Value: " + String(pHValue) + "</p>";
   webpage += "</div>";
   
   // Pumpen
   webpage += "<div>";
-  webpage += "<h2>Pumps</h2>";
+  webpage += "<h2 style=\"font-size: 24px;\">Pumps</h2>";
   webpage += "<p>Pump 1 Status: <span class=\"status\">" + String(pump1Status ? "ON" : "OFF") + "</span><br>";
   webpage += "Pump 2 Status: <span class=\"status\">" + String(pump2Status ? "ON" : "OFF") + "</span></p>";
   webpage += "</div>";
   
   // Lampe
   webpage += "<div>";
-  webpage += "<h2>Lamp</h2>";
+  webpage += "<h2 style=\"font-size: 24px;\">Lamp</h2>";
   webpage += "<p>Lamp Status: <span class=\"status\">" + String(lampStatus ? "ON" : "OFF") + "</span></p>";
   webpage += "</div>";
   
