@@ -18,26 +18,20 @@ void handleRoot() {
   float temperature = dht.readTemperature();
 
   String webpage = "<!DOCTYPE html><html><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><title>DHT11 Sensor Data</title>";
-  webpage += "<style>body {font-family: Arial, sans-serif; margin: 0; padding: 0;}";
-  webpage += "header {background-color: #333; color: #fff; padding: 20px; text-align: center;}";
-  webpage += "h1 {margin-top: 0;}";
-  webpage += ".container {max-width: 600px; margin: 20px auto;}";
-  webpage += ".sensor-data {background-color: #f4f4f4; padding: 20px; border-radius: 10px;}";
-  webpage += "</style></head><body>";
-  webpage += "<header><h1>DHT11 Sensor Data</h1></header>";
-  webpage += "<div class=\"container\">";
-  webpage += "<div class=\"sensor-data\">";
-  webpage += "<p>Humidity: " + String(humidity, 2) + "%<br>Temperature: " + String(temperature, 2) + "°C</p>";
+  webpage += "<style>body { font-family: Arial, sans-serif; text-align: center; } .logo { font-family: 'Courier New', Courier, monospace; }</style></head><body>";
+  webpage += "<div class=\"logo\">";
   webpage += "<pre>";
-  webpage += "  _______       __     ________    _______  _______   ___        ______      ______   ___      ___ \n";
-  webpage += " /\"     \"|     /\"\"\\   (\"      \"\\  /\"     \"||   _  \"\\ |\"  |      /    \" \\    /    \" \\ |\"  \\    /\"  |\n";
-  webpage += "(: ______)    /    \\   \\___/   :)(: ______)(. |_)  :)(|  |     // ____  \\  // ____  \\ \\   \\  //   |\n";
-  webpage += " \\/    |     /' /\\  \\    /  ___/  \\/    |  |:     \\/  |  |    /  /    ) :)/  /    ) :)/\\\\  \\/.    |\n";
-  webpage += " // ___)_   //  __'  \\  //  \\__   // ___)_ (|  _  \\\\  \\  |___(: (____/ //(: (____/ //|: \\.        |\n";
-  webpage += "(:      \"| /   /  \\\\  \\(:   / \"\\ (:      \"||: |_)  :)( \\_|:  \\\\        /  \\        / |.  \\    /:  |\n";
-  webpage += " \\_______)(___/    \\___)\\_______) \\_______)(_______/  \\_______)\"_____/    \"_____/  |___|\\__/|___|";
+  webpage += " _____             ______ _                       \n";
+  webpage += "|  ___|            | ___ \\ |                      \n";
+  webpage += "| |__  __ _ _______| |_/ / | ___   ___  _ __ ___  \n";
+  webpage += "|  __|/ _` |_  / _ \\ ___ \\ |/ _ \\ / _ \\| '_ ` _ \\ \n";
+  webpage += "| |__| (_| |/ /  __/ |_/ / | (_) | (_) | | | | | |\n";
+  webpage += "\\____/\\__,_/___\\___\\____/|_|\\___/ \\___/|_| |_| |_|\n";
   webpage += "</pre>";
-  webpage += "</div></div></body></html>";
+  webpage += "</div>";
+  webpage += "<h1>DHT11 Sensor Data</h1>";
+  webpage += "<p>Humidity: " + String(humidity, 2) + "%<br>Temperature: " + String(temperature, 2) + "°C</p>";
+  webpage += "</body></html>";
 
   server.send(200, "text/html", webpage);
 }
