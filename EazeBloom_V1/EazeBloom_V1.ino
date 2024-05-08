@@ -18,7 +18,10 @@ void handleRoot() {
   float temperature = dht.readTemperature();
 
   String webpage = "<!DOCTYPE html><html><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><title>DHT11 Sensor Data</title>";
-  webpage += "<style>body { font-family: Arial, sans-serif; text-align: center; } .logo { font-family: 'Courier New', Courier, monospace; }</style></head><body>";
+  webpage += "<style>body { font-family: Arial, sans-serif; text-align: center; } .container { max-width: 600px; margin: 0 auto; } .logo { font-family: 'Courier New', Courier, monospace; }</style></head><body>";
+  webpage += "<div class=\"container\">";
+  
+  // Logo
   webpage += "<div class=\"logo\">";
   webpage += "<pre>";
   webpage += " _____             ______ _                       \n";
@@ -29,8 +32,33 @@ void handleRoot() {
   webpage += "\\____/\\__,_/___\\___\\____/|_|\\___/ \\___/|_| |_| |_|\n";
   webpage += "</pre>";
   webpage += "</div>";
-  webpage += "<h1>DHT11 Sensor Data</h1>";
+  
+  // Temperatur und Luftfeuchtigkeit
+  webpage += "<div>";
+  webpage += "<h2>Temperature and Humidity</h2>";
   webpage += "<p>Humidity: " + String(humidity, 2) + "%<br>Temperature: " + String(temperature, 2) + "°C</p>";
+  webpage += "</div>";
+  
+  // pH-Wert
+  webpage += "<div>";
+  webpage += "<h2>pH Value</h2>";
+  // Füge hier den pH-Wert hinzu
+  webpage += "</div>";
+  
+  // Pumpen
+  webpage += "<div>";
+  webpage += "<h2>Pumps</h2>";
+  // Füge hier die Pumpenstatus-Informationen hinzu
+  webpage += "</div>";
+  
+  // Lampe
+  webpage += "<div>";
+  webpage += "<h2>Lamp</h2>";
+  // Füge hier die Lampenstatus-Informationen hinzu
+  webpage += "</div>";
+  
+  webpage += "</div>"; // Ende des container-Divs
+  
   webpage += "</body></html>";
 
   server.send(200, "text/html", webpage);
