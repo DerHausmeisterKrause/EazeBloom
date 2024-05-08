@@ -24,7 +24,7 @@ void handleRoot() {
   bool lampStatus = true; // Beispielwert für die Lampe
 
   String webpage = "<!DOCTYPE html><html><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><title>DHT11 Sensor Data</title>";
-  webpage += "<style>body { font-family: Arial, sans-serif; text-align: center; background-color: #f7f7f7; } .container { width: 48%; display: inline-block; vertical-align: top; margin: 10px; background-color: #ffffff; padding: 20px; border-radius: 10px; box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1); } .logo { font-family: 'Courier New', Courier, monospace; } h2 { margin-top: 20px; font-family: 'Verdana', sans-serif; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); } .status { font-weight: bold; padding: 5px 10px; border-radius: 5px; } .status-on { background-color: #4CAF50; color: white; } .status-off { background-color: #f44336; color: white; } .sensor-container { margin-top: 30px; text-align: center; background-color: #f2f2f2; padding: 15px; border-radius: 5px; }</style></head><body>";
+  webpage += "<style>body { font-family: Arial, sans-serif; text-align: center; background-color: #f7f7f7; } .container { display: flex; flex-direction: column; align-items: center; } .sensor-container { width: 300px; margin: 10px; background-color: #ffffff; padding: 20px; border-radius: 10px; box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1); } .logo { font-family: 'Courier New', Courier, monospace; } h2 { margin-top: 20px; font-family: 'Verdana', sans-serif; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); } .status { font-weight: bold; padding: 5px 10px; border-radius: 5px; } .status-on { background-color: #4CAF50; color: white; } .status-off { background-color: #f44336; color: white; } </style></head><body>";
   webpage += "<div class=\"container\">";
   
   // Logo
@@ -39,28 +39,32 @@ void handleRoot() {
   webpage += "</pre>";
   webpage += "</div>";
 
-  // Erste Reihe
-  webpage += "<div class=\"container\">";
+  // Sensor Data
+  webpage += "<div class=\"sensor-container\">";
   webpage += "<h2>Sensor Data</h2>";
   webpage += "<p>Humidity: " + String(humidity, 2) + "%<br>Temperature: " + String(temperature, 2) + "°C</p>";
   webpage += "</div>";
 
-  webpage += "<div class=\"container\">";
+  // pH Value
+  webpage += "<div class=\"sensor-container\">";
   webpage += "<h2>pH Value</h2>";
   webpage += "<p>pH Value: " + String(pHValue) + "</p>";
   webpage += "</div>";
 
-  // Zweite Reihe
-  webpage += "<div class=\"container\">";
+  // Pumps
+  webpage += "<div class=\"sensor-container\">";
   webpage += "<h2>Pumps</h2>";
   webpage += "<p>Pump 1 Status: <span class=\"status status-" + String(pump1Status ? "on\">ON" : "off\">OFF") + "</span></p>";
   webpage += "<p>Pump 2 Status: <span class=\"status status-" + String(pump2Status ? "on\">ON" : "off\">OFF") + "</span></p>";
   webpage += "</div>";
 
-  webpage += "<div class=\"container\">";
+  // Lamp
+  webpage += "<div class=\"sensor-container\">";
   webpage += "<h2>Lamp</h2>";
   webpage += "<p>Lamp Status: <span class=\"status status-" + String(lampStatus ? "on\">ON" : "off\">OFF") + "</span></p>";
   webpage += "</div>";
+
+  webpage += "</div>"; // End of container
 
   webpage += "</body></html>";
 
